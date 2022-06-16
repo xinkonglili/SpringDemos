@@ -9,6 +9,14 @@
 ``` 
 https://docs.spring.io/spring-framework/docs/5.2.1.RELEASE/spring-framework-reference/
 ```
+### 5、spring AOP
+#### 代理模式
+- 静态代理
+    - 先创建接口--把具体需要的功能列出来
+    - 确定真实的对象
+    - 找代理对象--代理对象可以自己定义功能需求，增加额外的附属条件，比如说中介费
+    - 客户--找代理（创建真实的对象，扔到代理里面）
+
 ## 二 、TipS
 ### 1、常用Archetype,
 - maven-archetype-quickstart
