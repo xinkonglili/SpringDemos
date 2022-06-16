@@ -16,7 +16,22 @@ https://docs.spring.io/spring-framework/docs/5.2.1.RELEASE/spring-framework-refe
     - 确定真实的对象
     - 找代理对象--代理对象可以自己定义功能需求，增加额外的附属条件，比如说中介费
     - 客户--找代理（创建真实的对象，扔到代理里面）
-
+### 6、使用set和get（其实也就是封装，把属性封装起来，只提供对外访问的接口）
+- 由于属性被私有化了，不能直接访问，所以需要set或者get
+- set属性（属性首字母要大写）
+```aidl
+    private UserService userservice;//属性、变量类型
+    public void setUserService(UserService userservice) {//setUserService大写
+        this.userservice = userservice;
+    }
+```
+```aidl
+//私有属性，也可以设置有参的构造方法来进行传递对象
+    private UserService userservice;//属性、变量类型
+    public UserProxyService(UserService userservice) {
+            this.userservice = userservice;
+        }
+```
 ## 二 、TipS
 ### 1、常用Archetype,
 - maven-archetype-quickstart

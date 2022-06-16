@@ -6,6 +6,11 @@ public class UserProxyService implements UserServiceImpl{
     public UserProxyService(UserService userservice) {
         this.userservice = userservice;
     }
+    /**
+    public void setUserService(UserService userservice) {
+        this.userservice = userservice;
+    }
+     **/
 
     public void allMethod(){
         add();
