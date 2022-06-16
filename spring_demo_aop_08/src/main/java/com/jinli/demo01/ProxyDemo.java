@@ -1,12 +1,14 @@
 package com.jinli.demo01;
 
-public class Proxy implements Rent{
+import com.jinli.demo03.ProxyInvocationHandler;
+
+public class ProxyDemo implements Rent{
     private Host host;
 
-    public Proxy() {
+    public ProxyDemo() {
     }
    //房东有多个,调用有参构造
-    public Proxy(Host host) {
+    public ProxyDemo(Host host) {
         this.host = host;
     }
 
