@@ -116,42 +116,4 @@ jdk18会出现中文乱码问题，不要使用，jdk17配置的时候出现：�
 ![img.png](imgs/img.png)
 
 
-```
-public Cat getCat(){
-        return cat;
-    }
 
-    public Dog getDog(){
-        return dog;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return "People{" + "cat=" + cat + ", dog=" + dog + ", name=" + name + '\''+ "}";
-    }
-```
-
-```aidl
-<?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       https://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context
-       https://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/aop
-       https://www.springframework.org/schema/aop/spring-aop.xsd">
-
-        <!--开启注解的支持-->
-       <context:annotation-config/>
-    <bean id = "cat1" class = "com.jinli.pojo.Cat"/>
-    <bean id = "cat2" class="com.jinli.pojo.Cat"/>
-    <bean id = "dog123" class = "com.jinli.pojo.Dog"/>
-    <bean id = "people" class="com.jinli.pojo.People"/>
-```
