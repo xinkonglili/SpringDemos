@@ -22,8 +22,13 @@ public class ProxyInvocationHandler implements InvocationHandler {
     //3、使用这个代理类，必须要实现的接口，来处理这个代理类
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        log(method.getName());
         //使用反射机制实现
         Object result = method.invoke(target, args); //introduce variable
         return result;
+    }
+
+    public void log(String method){
+        System.out.println("使用了"+method+"方法");
     }
 }
