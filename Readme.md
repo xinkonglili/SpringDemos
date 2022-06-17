@@ -32,6 +32,46 @@ https://docs.spring.io/spring-framework/docs/5.2.1.RELEASE/spring-framework-refe
             this.userservice = userservice;
         }
 ```
+
+### 7、动态代理类模板
+```aidl
+//代理调用处理程序，使用这个类自动生成代理类
+public class ProxyInvocationHandler implements InvocationHandler {
+    //1、被代理的接口Object
+    private Object target;
+    public void setTarget(Object target) {
+        this.target = target;
+    }
+
+    //2、生成得到代理类Object
+    public Object getProxy(){
+        return Proxy.newProxyInstance(this.getClass().getClassLoader(),target.getClass().getInterfaces(),this);
+    }
+
+    //3、使用这个代理类，必须要实现的接口，来处理这个代理类
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        //使用反射机制实现
+        Object result = method.invoke(target, args); //introduce variable
+        return result;
+    }
+}
+```
+### 8、使用动态代理的步骤
+```aidl
+        //1、创建真实角色
+        UserService userService = new UserService();
+        //2、代理角色--不存在（动态生成）
+        ProxyInvocationHandler pih = new ProxyInvocationHandler();
+        //3、设置要代理的真实对象
+        pih.setTarget(userService);
+        //4、动态生成代理类--接口对象
+        UserServiceImpl proxy =(UserServiceImpl) pih.getProxy();
+        //5、这里调用真实对象里面的方法执行，由代理对象去执行的，真实对象不用关心
+        proxy.del();
+```
+
+
 ## 二 、TipS
 ### 1、常用Archetype,
 - maven-archetype-quickstart

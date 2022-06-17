@@ -23,9 +23,19 @@ public class ProxyInvocationHandler implements InvocationHandler {
     //使用这个代理类，必须要实现的接口，来处理这个代理类
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        seeHouse();
         //使用反射机制实现
         Object result = method.invoke(rent, args); //introduce variable
+        fareHouse();
         return result;
+    }
+
+    public void seeHouse(){
+        System.out.println("中介带去看房子");
+    }
+
+    public void fareHouse(){
+        System.out.println("中介收中介费");
     }
 
 
