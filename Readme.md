@@ -92,8 +92,9 @@ public static void main(String[] args) {
           使用了del方法
           房东2减少一个用户
 ```
-
-### 10、实现AOP的三种方式
+### 10 AOP的作用
+AOP是一种思想，是一种横向编程的思想，在不影响我们原来业务类的情况下，实现动态的增强。
+### 11、实现AOP的三种方式
 - 一、原生spring方式
 ```aidl
    <!--配置aop-->
@@ -107,7 +108,7 @@ public static void main(String[] args) {
         <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
     </aop:config>
 ```
-- 二、使用自定义类（自定义切面aspect)
+- 二、使用自定义类（自定义切面aspect)----比较推荐，就是要定义多个切入点
   - execution(* com.jinli.diy.MyDefine. *(..)) //表达式所有类下的所有方法
 ```aidl
 //class MyDefine
@@ -153,9 +154,11 @@ console：
    - 开启注解支持
 ```aidl
     <bean id = "AnnotationPointContext" class="com.jinli.diy.AnnotationPointContext"/>
-    <!--开启注解支持-->
+    <!--开启注解支持--  注解支持方式：JDK（默认false） cglib（true）>
     <aop:aspectj-autoproxy/>
 ```
+<aop:aspectj-autoproxy  后面有个参数，几乎不用/>
+![imgs](/imgs/img_2.png)
 
 ```aidl
 @Aspect  //切面注解是写在类上面的

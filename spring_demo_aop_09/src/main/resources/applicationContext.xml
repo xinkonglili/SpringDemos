@@ -42,6 +42,6 @@
     <!--方式三：使用注解的方式-->
     <bean id = "AnnotationPointContext" class="com.jinli.diy.AnnotationPointContext"/>
     <!--开启注解支持-->
-    <aop:aspectj-autoproxy/>
+    <aop:aspectj-autoproxy />
 
 </beans>

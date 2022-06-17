@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-
+//声明式事务
 @Aspect  //切面注解是写在类上面的
 public class AnnotationPointContext {
 
