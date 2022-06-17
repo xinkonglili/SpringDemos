@@ -120,6 +120,7 @@ public static void main(String[] args) {
 ### 3、idea使用技巧
 - ctrl+ o  构造方法重载
 - ctrl + l 实现
+- 按住ctrl,点进去包名，可以看到包的接口和类
 
 ## 三、question: 
 ### 1、如果没有依赖，尝试右键刷新
