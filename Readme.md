@@ -93,6 +93,63 @@ public static void main(String[] args) {
           房东2减少一个用户
 ```
 
+### 10、实现AOP的三种方式
+- 一、原生spring方式
+```aidl
+   <!--配置aop-->
+    <aop:config>
+        <!--切入点（可以配置多个切入点）,表达式：execution(要执行的位置！)-->
+        <!--.. 代表有任意的参数   * 代表所有 -->
+        <aop:pointcut id="pointcut" expression="execution(* com.jinli.service.UserServiceImpl.*(..))"/>
+
+        <!--执行环绕增加,执行哪个类，切入到哪里-->
+        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>
+        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>
+```
+- 二、使用自定义类（自定义切面aspect)
+  - execution(* com.jinli.diy.MyDefine. *(..)) //表达式所有类下的所有方法
+```aidl
+//class MyDefine
+public class MyDefine {
+    public void After(){
+        System.out.println("-----------方法执行后----------");
+    }
+    public void Before(){
+        System.out.println("-----------方法执行前------------");
+    }
+}
+//--------------------------------------------------------------------------
+//xml
+<aop:config>
+        <!--使用切面的方式实现，自定义切面(aspect)，ref：要引用的类-->
+        <aop:aspect ref="MyDefine">
+            <!--1、切入点-->
+            <aop:pointcut id="point" expression="execution(* com.jinli.diy.MyDefine. *(..))"/>
+            <!--2、通知-->
+            <aop:before method="Before" pointcut-ref="pointcut"/>
+            <aop:after method="After" pointcut-ref="pointcut"/>
+        </aop:aspect>
+    </aop:config>
+```
+- 切面的一些理解：
+  - before : 在切入点之前执行某个方法
+  - after ：在切入点之后执行某个方法
+  
+xml：
+```aidl
+      <aop:before method="Before" pointcut-ref="point"/>
+      <aop:after method="test"  pointcut-ref="point"/>
+      <aop:after method="After" pointcut-ref="point"/>
+```
+console：
+```aidl
+        -----------方法执行前------------
+        增加了一个user
+        -----------方法执行测试----------
+        -----------方法执行后----------
+```
+
 ## 二 、TipS
 ### 1、常用Archetype,
 - maven-archetype-quickstart
@@ -121,6 +178,7 @@ public static void main(String[] args) {
 - ctrl+ o  构造方法重载
 - ctrl + l 实现
 - 按住ctrl,点进去包名，可以看到包的接口和类
+- 编辑xml文件时: 注释：CTRL + SHIFT + / ; 取消注释：CTRL + SHIFT + \
 
 ## 三、question: 
 ### 1、如果没有依赖，尝试右键刷新

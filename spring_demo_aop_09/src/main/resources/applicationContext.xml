@@ -11,17 +11,34 @@
     <bean id = "userService" class="com.jinli.service.UserServiceImpl"/>
     <bean id = "log" class="com.jinli.log.Log"/>
     <bean id = "afterLog" class="com.jinli.log.AfterLog"/>
+    <bean id = "MyDefine" class="com.jinli.diy.MyDefine"/>
 
-    <!--配置aop-->
+ <!--   &lt;!&ndash;配置aop&ndash;&gt;
     <aop:config>
-        <!--切入点（可以配置多个切入点）,表达式：execution(要执行的位置！)-->
-        <!--.. 代表有任意的参数   * 代表所有 -->
+        &lt;!&ndash;切入点（可以配置多个切入点）,表达式：execution(要执行的位置！)&ndash;&gt;
+        &lt;!&ndash;.. 代表有任意的参数   * 代表所有 &ndash;&gt;
         <aop:pointcut id="pointcut" expression="execution(* com.jinli.service.UserServiceImpl.*(..))"/>
 
-        <!--执行环绕增加,执行哪个类，切入到哪里-->
+        &lt;!&ndash;执行环绕增加,执行哪个类，切入到哪里&ndash;&gt;
         <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>
         <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>
+    </aop:config>-->
+
+
+
+    <aop:config>
+        <!--使用切面的方式实现，自定义切面，ref：要引用的类-->
+        <aop:aspect ref="MyDefine">
+            <!--1、切入点-->
+            <aop:pointcut id="point" expression="execution(* com.jinli.service.UserServiceImpl.*(..))"/>
+            <!--2、通知-->
+            <aop:before method="Before" pointcut-ref="point"/>
+            <aop:after method="test"  pointcut-ref="point"/>
+            <aop:after method="After" pointcut-ref="point"/>
+
+        </aop:aspect>
     </aop:config>
+
 
 
 </beans>

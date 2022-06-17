@@ -12,6 +12,5 @@ public class MyTest {
        //3、使用接口去调用类里面的方法
        userService.add();
 
-
     }
 }
