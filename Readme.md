@@ -116,4 +116,17 @@ jdk18会出现中文乱码问题，不要使用，jdk17配置的时候出现：�
 ![img.png](imgs/img.png)
 
 
+### 3、报错slf4j找不到或者版本问题，尝试添加以下依赖
+```aidl
+<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.25</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+```
