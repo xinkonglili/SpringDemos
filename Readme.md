@@ -254,7 +254,27 @@ service层调dao层，service层等待着controller层调用
   +-------+-------------+------+-----+---------+-------+
   3 rows in set (0.00 sec)
   ```
+### 13、mybatis配置文件
+```aidl
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/> //&amp转义字符
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="jinli666"/>
+            </dataSource>
+        </environment>
+    </environments>
 
+</configuration>
+```
 
 ## 二 、TipS
 ### 1、常用Archetype,
@@ -315,4 +335,10 @@ jdk18会出现中文乱码问题，不要使用，jdk17配置的时候出现：�
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.7.25</version>
         </dependency>
+```
+### 4 、Error: could not open `D:\software\jdk8\jdk1.8\lib\amd64\jvm.cfg
+```
+1、%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;//移到Path环境变量的最前面
+2、删掉该目录下 C:\Program Files\Common Files\Oracle\Java\javapath的除javac的其余3个文件
+
 ```
