@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="spring-demo-autowire-05" />
+        <module name="spring-demo-01-ioc" />
+        <module name="spring_demo_aop_09" />
+        <module name="spring_demo_mybatis_10" />
+        <module name="spring_demo_aop_08" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="spring-demo" target="8" />
+      <module name="spring_demo_09_aop" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="spring-demo-autowire-05" options="" />
+    </option>
+  </component>
+</project>

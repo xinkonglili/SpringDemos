@@ -187,6 +187,73 @@ public class AnnotationPointContext {
 
 ```
 
+### 12、为什么要使用MyBatis--优秀的持久层框架
+- 因为数据要做到持久化，内存断电即失，并且内存非常贵，mybatis完成持久化工作的代码块
+service层调dao层，service层等待着controller层调用
+- 帮助程序员更好的将数据存到数据库里面
+- 传统的jdbc太过于复杂，需要框架来进行持久化
+- 编写程序的逻辑
+     - 搭建环境--->编写mybatis配置文件--->编写代码--->测试
+- ```create database 'mybatis' == create database mybatis;// tab键上面的键```
+- ``` show databases;```
+- ```use databasename;```
+- ```
+  //1、查看所有数据库
+  mysql> show databases;
+  +--------------------+
+  | Database           |
+  +--------------------+
+  | information_schema |
+  | mybatis            |
+  | mysql              |
+  | performance_schema |
+  | sys                |
+  +--------------------+
+  5 rows in set (0.00 sec)
+  
+  //2、使用某个数据库
+  mysql> use mybatis;
+  Database changed
+
+  //3、建表语句，主键primary key 、 engine=innodb default charset =utf8
+  mysql> create table `user`(
+  -> `id` int(10) not null,
+  -> `name` varchar(30) default null,
+  -> `pwd` varchar( 30) default null,
+  -> primary key(`id`) //这里没有逗号
+  -> )engine=innodb default charset=utf8;
+  Query OK, 0 rows affected (0.04 sec)
+  
+  //4、显示某个数据库的所有表
+  mysql> show tables;
+  +-------------------+
+  | Tables_in_mybatis |
+  +-------------------+
+  | user              |
+  +-------------------+
+  1 row in set (0.00 sec)
+  
+  //5、查看表里面的具体数据
+  mysql> select * from user;
+  +----+-------+------+
+  | id | name  | pwd  |
+  +----+-------+------+
+  |  1 | Jinli | 123  |
+  |  2 | lvpl  | 234  |
+  +----+-------+------+
+  2 rows in set (0.02 sec)
+  
+  //6、查看表的数据结构
+  mysql> desc user;
+  +-------+-------------+------+-----+---------+-------+
+  | Field | Type        | Null | Key | Default | Extra |
+  +-------+-------------+------+-----+---------+-------+
+  | id    | int(10)     | NO   | PRI | NULL    |       |
+  | name  | varchar(30) | YES  |     | NULL    |       |
+  | pwd   | varchar(30) | YES  |     | NULL    |       |
+  +-------+-------------+------+-----+---------+-------+
+  3 rows in set (0.00 sec)
+  ```
 
 
 ## 二 、TipS
