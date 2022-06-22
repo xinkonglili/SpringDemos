@@ -9,8 +9,8 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
 
     <dependencies>
@@ -64,7 +64,6 @@
             <artifactId>javax.xml.soap-api</artifactId>
             <version>1.4.0</version>
         </dependency>
-
     </dependencies>
 
 
@@ -72,6 +71,13 @@
             <resources>
                 <resource>
                     <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.xml</include>
+                    </includes>
+                    <filtering>true</filtering>
+                </resource>
+                <resource>
+                    <directory>src/main/resources</directory>
                     <includes>
                         <include>**/*.xml</include>
                     </includes>

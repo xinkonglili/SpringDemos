@@ -12,7 +12,7 @@ import java.util.List;
 
 public class MyTest  {
     @Test
-    public void test() throws IOException { //抛异常
+    public void  test() throws IOException { //抛异常
         String resources = "mybatis-config.xml"; //读取配置文件
         InputStream in = Resources.getResourceAsStream(resources);
         SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(in);
@@ -22,8 +22,6 @@ public class MyTest  {
         for (User user : userList) {
             System.out.println(user);
         }
-
-
 
     }
 

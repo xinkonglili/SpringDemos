@@ -12,7 +12,6 @@
         <module name="spring_demo_aop_09" />
         <module name="spring_demo_mybatis_10" />
         <module name="spring_demo_aop_08" />
-        <module name="spring-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />

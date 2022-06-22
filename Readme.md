@@ -305,6 +305,9 @@ service层调dao层，service层等待着controller层调用
 - ctrl + l 实现
 - 按住ctrl,点进去包名，可以看到包的接口和类
 - 编辑xml文件时: 注释：CTRL + SHIFT + / ; 取消注释：CTRL + SHIFT + \
+- ctrl+/      这个是多行代码分行注释，每行一个注释符号 
+- ctrl+shift+/    这个是多行代码注释在一个块里，只在开头和结尾有注释符号
+- 取消多行注释快捷键,和添加快捷键的方法一样
 
 ## 三、question: 
 ### 1、如果没有依赖，尝试右键刷新
