@@ -276,6 +276,59 @@ service层调dao层，service层等待着controller层调用
 </configuration>
 ```
 
+### 13、注解
+Annotation：不是程序本身，但是可以对程序做出解释，可以被其他程序读取（通过反射去读取），注解还有检查跟约束的作用
+1、@Override 重写的注解
+2、Thread类继承Runnable接口：有个@Functio nalInterface注解
+3、@Deprecated 已废弃的
+4、@SupperWarnings(value="unchecked")  //注解还可以添加参数all，参数类型、参数名    
+5、注解可以在package，calss，method、field上使用，可以通过反射机制来实现对元数据的访问
+- 内置注解
+   - @Override：一定要去重写父类的方法
+   - @Deprecated
+   - @SupperWarnings
+- 元注解
+   - 负责解释其他注解
+   - @target：用于描述注解的使用范围
+   - @Retention:需要在什么级别保存该注释的信息runtime>class>sources
+   - @Document
+   - @Inherited：说明子类可以继承父类的注解
+     - 自定义注解-不能有2个public修饰的注解
+        - ```
+          @Target(value=ElementType.METHOD) //注解只能在方法上使用
+          //注解可以显示赋值
+           public @interface myAnnotation{
+              String name() default "";//参数类型+参数名
+              int age() default 0;
+              int id() default -1; //代表不存在
+              String school() default {"清华大学"，"北京大学"};
+          }
+          ```
+### 14、反射---通过对象去反射类
+  - 1、java，C,C++是静态语言，就是因为反射机制的存在，程序在运行的时候还能跑进去加一些hock，改变它运行时里面的数据
+      - 动态语言：在程序运行的时候可以改变变量的值
+  - 2、反射机制概述
+      - 反射机制允许程序在执行期借助于reflection api取得任何类的内部信息，并能操作任意对象的内部属性及方法
+        - ```Class c = Class.forName("java.lang.String") //反射可以直接读取private修饰的属性```
+  - 3、理解class类并获取class实例
+    - 方法1、已知具体的类，通过类.class()获取
+    - 方法2、已知到某个类的实例，通过类.getClass()获取
+    - 方法3、已知一个类的全名，且该类在类的路径下，可通过Class.forName("该类的类名")获取
+    - 方法4、内置的基本数据类型可以直接用类名.Type
+    - 方法5、使用ClassLoader获取
+    - 题外--------------------------->哪些类型可以有Class对象
+        
+  - 4、类加载和classloder
+      - 加载完类之后，在堆内存的方法区中就会产生一个Class类型的对象，这个对象（就像一面镜子）包含了完整的类的结构的信息，我们可以通过这个对象看到类的结构，所以我们形象的称之为反射
+
+  - 5、创建运行时类的对象
+  - 6、获取运行时类的完整结构
+  - 7、调用运行时类的指定结构
+  - 优缺点
+      - 优点：可以实现动态的创建对象和编译，体现很大的灵活性
+      - 缺点：对性能有影响，反射相当于一种解释操作，他会告诉虚拟机，我们希望他做什么并且他去满足我们的要求，这种加了一层解释会比直接new，直接执行我们的操作慢很多倍
+  - 反射：Class，Method，Field，Constructor
+  
 ## 二 、TipS
 ### 1、常用Archetype,
 - maven-archetype-quickstart
