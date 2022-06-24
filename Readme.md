@@ -328,6 +328,27 @@ Annotation：不是程序本身，但是可以对程序做出解释，可以被�
       - 优点：可以实现动态的创建对象和编译，体现很大的灵活性
       - 缺点：对性能有影响，反射相当于一种解释操作，他会告诉虚拟机，我们希望他做什么并且他去满足我们的要求，这种加了一层解释会比直接new，直接执行我们的操作慢很多倍
   - 反射：Class，Method，Field，Constructor
+    - 通过反射获取方法，并且使用该方法，示例：
+       - ```aidl
+         //获得一个Class对象
+         Class c1 = Class.forName("com.jinli.Reflector.User");
+         //通过反射调用普通方法
+         User user2 = (User)c1.newInstance();//利用反射创建
+         //通过反射获取一个方法
+         Method setName  = c1.getDeclaredMethod("setName", String.class);
+         setName.invoke(user2,"瑾里");
+         System.out.println(user2.getName());
+    - 创建Class对象以及使用该对象创建具体类的对象，并且调用具体类的方法
+        - ``` 
+          //通过Class对象创建对象
+          Class c2 = Class.forName("com.jinli.Reflector.User");
+          User user1 = (User) c2.newInstance();
+          //获取对象的Class对象
+          Class c1 = user1.getClass();
+          //通过获取的Class对象，获取类的方法
+          Method getName = c1.getDeclaredMethod("getName", null);
+       
+
 ### 15、java内存分析
 1、堆：存放new出来的对象和数组；可以被所有的线程共享，不会存放别的对象引用
 
