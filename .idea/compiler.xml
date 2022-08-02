@@ -9,15 +9,19 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-demo-autowire-05" />
         <module name="spring-demo-01-ioc" />
+        <module name="spring_demo_aop_08" />
         <module name="spring_demo_aop_09" />
         <module name="spring_demo_mybatis_10" />
-        <module name="spring_demo_aop_08" />
+        <module name="demo" />
+        <module name="demo2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="demo" options="-parameters" />
+      <module name="demo2" options="-parameters" />
       <module name="spring-demo-autowire-05" options="" />
     </option>
   </component>

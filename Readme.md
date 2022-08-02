@@ -158,6 +158,7 @@ console：
     <aop:aspectj-autoproxy/>
 ```
 <aop:aspectj-autoproxy  后面有个参数，几乎不用/>
+
 ![imgs](/imgs/img_2.png)
 
 ```aidl
@@ -278,10 +279,15 @@ service层调dao层，service层等待着controller层调用
 
 ### 13、注解
 Annotation：不是程序本身，但是可以对程序做出解释，可以被其他程序读取（通过反射去读取），注解还有检查跟约束的作用
+
 1、@Override 重写的注解
-2、Thread类继承Runnable接口：有个@Functio nalInterface注解
+
+2、Thread类继承Runnable接口：有个@Function allInterface注解
+
 3、@Deprecated 已废弃的
+
 4、@SupperWarnings(value="unchecked")  //注解还可以添加参数all，参数类型、参数名    
+
 5、注解可以在package，calss，method、field上使用，可以通过反射机制来实现对元数据的访问
 - 内置注解
    - @Override：一定要去重写父类的方法
@@ -386,6 +392,13 @@ Annotation：不是程序本身，但是可以对程序做出解释，可以被�
     - 方法名相同，参数列表相同，返回类型可以相同也可以不同
     - 抛异常（范围可以缩小，但是不能扩大）和修饰符（可大不可小）
 
+
+### 数据库知识点
+1、常用命令
+- ctrl+c 强行终止
+- 单行注释  --    多行注释   /**/
+- 退出exit;
+2、
 ## 二 、TipS
 ### 1、常用Archetype,
 - maven-archetype-quickstart
